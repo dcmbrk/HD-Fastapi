@@ -1,0 +1,50 @@
+{% extends "base.html" %} {% block title %}Xử lí đơn{% endblock %} {% block
+content %}
+<table class="table table-hover align-middle">
+  <thead class="table-light">
+    <tr>
+      <th>Người giải trình</th>
+      <th>Lớp học phần</th>
+      <th>Nội dung bị khoá</th>
+      <th>Hành động</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for e in explanations %}
+    <tr style="cursor: pointer">
+      <td>
+        <div class="d-flex align-items-center gap-2">
+          <div class="rounded-circle bg-secondary text-white d-flex justify-content-center align-items-center"
+            style="width: 36px; height: 36px; font-weight: 700">
+            LT
+          </div>
+          <div>
+            <div class="fw-semibold">{{ e.student_username }}</div>
+            <div class="text-muted small">{{ e.student_email }}</div>
+          </div>
+        </div>
+      </td>
+      <td>
+        <div class="fw-semibold">{{ e.class }}</div>
+      </td>
+      <td>{{ e.lock_part }}</td>
+      <td>
+        <form action="{{ url_for('process_application') }}" method="POST" style="display: inline">
+          <input type="hidden" name="application_id" value="{{ e.id }}" />
+          <input type="hidden" name="action" value="accept" />
+          <button class="btn btn-success btn-sm me-1" type="submit">
+            Duyệt
+          </button>
+        </form>
+
+        <form action="{{ url_for('process_application') }}" method="POST" style="display: inline">
+          <input type="hidden" name="application_id" value="{{ e.id }}" />
+          <input type="hidden" name="action" value="delice" />
+          <button class="btn btn-danger btn-sm" type="submit">Từ chối</button>
+        </form>
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

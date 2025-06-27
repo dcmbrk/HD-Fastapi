@@ -1,0 +1,48 @@
+{% extends "base.html" %} {% block title %}Tạo Đơn{% endblock %} {% block
+content %}
+<div class="alert alert-warning" role="alert">
+  <h4 class="alert-heading">Lưu ý:</h4>
+  <ul class="mb-0">
+    <li>
+      Chỉ tiếp nhận đơn giải trình để tiếp tục học các tuần học trên lớp học
+      E-learning (Canvas)...
+    </li>
+    <li>
+      Đơn của sinh viên sẽ được xử lý trong 3 ngày làm việc... chú ý theo dõi
+      email hoặc Help Desk.
+    </li>
+    <li>Khi đơn được duyệt hệ thống sẽ mở toàn bộ nội dung đang bị khóa...</li>
+  </ul>
+</div>
+
+<form action="{{ url_for('create_post') }}" method="POST">
+  <div class="row g-3">
+    <div class="col-md-6">
+      <label for="classCode" class="form-label">Lớp học phần (trên Canvas)</label>
+      <div class="input-group">
+        <span class="input-group-text"><i class="bi bi-journal-bookmark"></i></span>
+        <input type="text" class="form-control" id="classCode" placeholder="Nhập lớp học phần" required name="class" />
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <label for="lockedContent" class="form-label">Nội dung đang bị khóa</label>
+      <div class="input-group">
+        <span class="input-group-text"><i class="bi bi-lock"></i></span>
+        <input type="text" class="form-control" id="lockedContent" placeholder="Nhập nội dung bị khóa" required
+          name="lock-part" />
+      </div>
+    </div>
+
+    <div class="col-12">
+      <label for="reason" class="form-label">Lí do chưa hoàn thành</label>
+      <textarea class="form-control" id="reason" rows="4" placeholder="Trình bày lí do..." required
+        name="reason"></textarea>
+    </div>
+  </div>
+
+  <div class="col-12 d-flex gap-2 mt-3">
+    <button type="submit" class="btn btn-primary">Xác nhận</button>
+  </div>
+</form>
+{% endblock %}

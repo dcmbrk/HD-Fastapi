@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{% block title %}Phenikaa Help Desk{% endblock %}</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" />
+  <style>
+    input[readonly] {
+      background-color: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+      padding-left: 0.75rem;
+    }
+
+    .input-group-text {
+      min-width: 42px;
+      justify-content: center;
+    }
+  </style>
+  {% block head %}{% endblock %}
+</head>
+
+<body>
+  <nav class="navbar navbar-light bg-light shadow-sm border-bottom">
+    <div class="container-fluid px-4">
+      <div class="d-flex gap-4">
+        <a class="nav-link" href="{{ url_for('index') }}">Trang chủ</a>
+        {% if user and user['admin'] == 0 and user['manager'] == 0 %}
+        <a class="nav-link" href="{{ url_for('explanation') }}">Đơn giải trình</a>
+        <a class="nav-link" href="{{ url_for('create_get') }}">Làm đơn</a>
+        {% endif %} {% if user and user['manager'] == 1 and user['admin'] == 0
+        %}
+        <a class="nav-link" href="{{ url_for('submition') }}">Xử lí đơn</a>
+        {% endif %} {% if user and user['admin'] == 1 %}
+        <a class="nav-link" href="{{ url_for('users') }}">Người dùng</a>
+        {% endif %}
+      </div>
+      <div class="d-flex gap-4 ms-auto">
+        {% if not user %}
+        <a class="nav-link" href="{{ url_for('login_get') }}">Login</a>
+        <a class="nav-link" href="{{ url_for('register_get') }}">Register</a>
+        {% else %}
+        <a class="nav-link me-4" href="{{ url_for('logout') }}">Logout</a>
+        {% endif %}
+      </div>
+    </div>
+  </nav>
+
+  <main class="container mt-4">{% block content %}{% endblock %}</main>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" defer></script>
+  {% block scripts %}{% endblock %}
+</body>
+
+</html>

@@ -1,0 +1,43 @@
+{% extends "base.html" %} {% block title %}Quản lý Người dùng{% endblock %} {%
+block content %}
+<table class="table table-bordered table-hover align-middle">
+  <thead class="table-light">
+    <tr>
+      <th>Username</th>
+      <th>Email</th>
+      <th>Admin</th>
+      <th>Manager</th>
+      <th>Hành động</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for u in users %}
+    <tr>
+      <td>{{ u.username }}</td>
+      <td>{{ u.email }}</td>
+      <td>{{ 'Yes' if u.admin else 'No' }}</td>
+      <td>{{ 'Yes' if u.manager else 'No' }}</td>
+      <td>
+        {% if not u.manager %}
+        <form action="{{ url_for('make_manager', user_id=u.id) }}" method="post" style="display: inline">
+          <button class="btn btn-sm btn-primary" type="submit">
+            Make Manager
+          </button>
+        </form>
+        {% else %}
+        <span class="text-muted">Already Manager</span>
+        {% endif %} {% if not u.admin %}
+        <form action="{{ url_for('make_admin', user_id=u.id) }}" method="post" style="display: inline">
+          <button class="btn btn-sm btn-warning" type="submit">
+            Make Admin
+          </button>
+        </form>
+        {% else %}
+        <span class="text-muted">Already Admin</span>
+        {% endif %}
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

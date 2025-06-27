@@ -1,0 +1,8 @@
+fastapi
+uvicorn
+SQLAlchemy
+PyMySQL
+Werkzeug
+Jinja2
+python-dotenv
+pydantic-settings

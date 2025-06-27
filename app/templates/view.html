@@ -1,0 +1,84 @@
+{% extends "base.html" %} {% block title %}View Đơn{% endblock %} {% block
+content %}
+<div class="alert alert-info" role="alert">
+  <h4 class="alert-heading">Đơn giải trình</h4>
+  <p>Dưới đây là thông tin chi tiết đơn giải trình.</p>
+</div>
+
+<form>
+  <div class="row g-3">
+    <div class="col-md-6">
+      <label for="studentName" class="form-label">Họ và tên</label>
+      <div class="input-group">
+        <span class="input-group-text"
+          ><i class="bi bi-person-circle"></i
+        ></span>
+        <input
+          type="text"
+          readonly
+          class="form-control"
+          id="studentName"
+          value="Lê Duy Tùng"
+        />
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <label for="studentEmail" class="form-label"
+        >Email (nhà trường cấp)</label
+      >
+      <div class="input-group">
+        <span class="input-group-text"><i class="bi bi-envelope"></i></span>
+        <input
+          type="text"
+          readonly
+          class="form-control"
+          id="studentEmail"
+          value="23010287@st.phenikaa-uni.edu.vn"
+        />
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <label for="classCode" class="form-label"
+        >Lớp học phần (trên Canvas)</label
+      >
+      <div class="input-group">
+        <span class="input-group-text"
+          ><i class="bi bi-journal-bookmark"></i
+        ></span>
+        <input
+          type="text"
+          readonly
+          class="form-control"
+          id="classCode"
+          value="CSE702011-1-3-24"
+        />
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <label for="lockedContent" class="form-label"
+        >Nội dung đang bị khóa</label
+      >
+      <div class="input-group">
+        <span class="input-group-text"><i class="bi bi-lock"></i></span>
+        <input
+          type="text"
+          readonly
+          class="form-control"
+          id="lockedContent"
+          value="Bài giảng tuần 5, 6"
+        />
+      </div>
+    </div>
+
+    <div class="col-12">
+      <label for="reason" class="form-label">Lí do chưa hoàn thành</label>
+      <textarea readonly class="form-control" id="reason" rows="3">
+Tôi bị ốm nên chưa thể hoàn thành bài tập.</textarea
+      >
+    </div>
+  </div>
+</form>
+{% endblock %}

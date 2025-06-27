@@ -1,0 +1,66 @@
+{% extends "base.html" %} {% block title %}Home{% endblock %} {% block content
+%}
+<div class="alert alert-success mx-5" role="alert">
+  <div>
+    <p class="mb-2 fw-semibold text-success fs-5">
+      Chào mừng bạn đến với Phenikaa Help Desk
+    </p>
+    <p class="mb-2 fs-6">
+      Chúc mừng bạn đã tham gia hệ thống Phenikaa Help Desk! Nơi giải đáp mọi
+      thắc mắc của bạn.<br />
+      Hãy bắt đầu bằng việc đọc qua
+      <a href="#" class="text-primary text-decoration-underline"
+        >Hướng dẫn Sử dụng</a
+      >
+      của chúng tôi để hiểu rõ hơn về cách thức hoạt động và tận dụng tối đa các
+      tính năng hữu ích của hệ thống. Chúc bạn có những trải nghiệm tuyệt vời!
+    </p>
+    <p class="fst-italic mb-0 fs-7">
+      Thông báo từ <strong>Trường Đại học Phenikaa</strong>
+    </p>
+  </div>
+</div>
+
+<div class="alert alert-info border border-info rounded p-3 mx-5" role="alert">
+  <p class="fw-semibold text-info fs-5 mb-2">Thông báo</p>
+
+  <p class="mb-2">Thân gửi các em sinh viên,</p>
+  <p class="mb-2">
+    Nhằm thực hiện công tác hỗ trợ cho sinh viên trong quá trình học, Bộ phận
+    Quản lý khóa học sẽ triển khai hệ thống Helpdesk để hỗ trợ giải đáp các thắc
+    mắc của sinh viên trong quá trình học.
+  </p>
+  <p class="mb-2">Thời gian áp dụng: 19/02/2024</p>
+  <p class="mb-2">
+    Trong quá trình sử dụng, các em chú ý theo dõi các thông báo ở trang chủ để
+    nắm thông tin có liên quan.
+  </p>
+  <p class="mb-2">Trân trọng.</p>
+  <p class="fst-italic text-muted mb-0">Thông báo từ Elearning 02</p>
+</div>
+
+<div
+  class="alert alert-warning border border-warning rounded p-4 mx-5"
+  role="alert"
+>
+  <h5 class="fw-bold text-warning mb-4">Hướng dẫn sử dụng Helpdesk</h5>
+
+  <p class="mb-2">
+    <strong>Vai trò:</strong>
+  </p>
+  <ul class="mb-2 ps-3">
+    <li><strong>Admin:</strong> Tùy chỉnh vai trò người dùng.</li>
+    <li><strong>Manager:</strong> Duyệt đơn.</li>
+    <li><strong>User thường (Student):</strong> Tạo đơn, theo dõi đơn.</li>
+  </ul>
+
+  <p class="mb-2">
+    <strong>Tài khoản mẫu:</strong><br />
+    Admin: <code>admin@gmail.com</code><br />
+    Manager: <code>manager@gmail.com</code>, <code>manager2@gmail.com</code
+    ><br />
+    Student: <code>testuser@gmail.com</code>
+  </p>
+  <p class="mb-0">(password: <em>password</em>)</p>
+</div>
+{% endblock %}
